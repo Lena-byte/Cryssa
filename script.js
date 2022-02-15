@@ -1,3 +1,19 @@
+//nav change letters and nav color
+$(window).scroll(function(){
+  if($(this).scrollTop()>200){
+    $('.nav-link').addClass('ncol');
+    $('nav').addClass('sticky');
+  }else{
+    $('.nav-link').removeClass('ncol');
+    $('nav').removeClass('sticky');
+  }
+  });
+
+
+  
+
+// SLIDER
+
 const slides = document.querySelectorAll('.slide');
 const next = document.querySelector('#next');
 const prev = document.querySelector('#prev');
@@ -38,7 +54,7 @@ const prevSlide = () => {
 };
 
 // Button events
-next.addEventListener('click', e => {
+next.addEventListener('click', () => {
   nextSlide();
   if (auto) {
     clearInterval(slideInterval);
@@ -46,7 +62,7 @@ next.addEventListener('click', e => {
   }
 });
 
-prev.addEventListener('click', e => {
+prev.addEventListener('click', () => {
   prevSlide();
   if (auto) {
     clearInterval(slideInterval);
@@ -60,26 +76,10 @@ if (auto) {
   slideInterval = setInterval(nextSlide, intervalTime);
 }
 
-//nav change letters color
-$(window).scroll(function(){
-  if($(this).scrollTop()>300){
-    $('.chCol').addClass('ncol');
-  }else{
-    $('.chCol').removeClass('ncol');
-  }
-  });
 
-//nav scrolling
-window.onscroll = () => {
-var nav  = document.querySelector('nav');
-  
-if (window.pageYOffset > 300) {
-      nav.classList.add("sticky")
-  } 
-  else {
-      nav.classList.remove("sticky");
-  }
-}
+
+
+
 
 //nav-toggler
 // const navLinks = document.querySelectorAll('.nav-item')
@@ -88,3 +88,4 @@ if (window.pageYOffset > 300) {
 // navLinks.forEach((l) => {
 //     l.addEventListener('click', () => { bsCollapse.toggle() })
 // })
+
